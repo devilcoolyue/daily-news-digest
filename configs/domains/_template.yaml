@@ -1,0 +1,80 @@
+domain: your_domain
+display_name: 今日你的主题资讯
+timezone: Asia/Shanghai
+window_hours: 30
+top_k: 12
+title_max_len: 30
+summary_max_len: 90
+tags_max_count: 3
+
+diversity:
+  per_entity_limit: 2
+
+dedupe:
+  title_similarity_threshold: 0.82
+
+scoring:
+  impact: 0.35
+  reliability: 0.25
+  recency: 0.20
+  corroboration: 0.15
+  buzz: 0.05
+
+source_reliability:
+  official: 0.95
+  wire: 0.90
+  media: 0.75
+  aggregator: 0.62
+  social: 0.45
+
+keyword_impact: {}
+entity_keywords: []
+tag_keywords: {}
+
+llm:
+  enable_title_refine: false
+  enable_summary_refine: false
+  enable_icon_classify: false
+  batch_size: 12
+  provider: deepseek
+  api_base: https://api.deepseek.com/v1
+  model: deepseek-chat
+  timeout_sec: 20
+  title_max_chars: 30
+  title_min_chars: 6
+  summary_max_chars: 90
+  summary_min_chars: 18
+
+render:
+  width: 1240
+  height: 1920
+  margin: 48
+  gap: 24
+  header_height: 230
+  footer_height: 48
+  layout_mode: smart
+  primary_card_emphasis: true
+  columns: 3
+  rows: 4
+  output_dir: output
+  icon_cache_dir: icon_cache
+  icon_fetch_timeout_sec: 6
+  icon_fetch_proxy: http://127.0.0.1:7890
+  background:
+    start: "#eef6ff"
+    end: "#dae8ff"
+  card_palette:
+    - "#2B6BE4"
+    - "#E96C2B"
+    - "#B8902C"
+    - "#14A4B8"
+    - "#2A9D59"
+    - "#8A909C"
+    - "#2A9CF2"
+    - "#1A4C96"
+    - "#7C4AD9"
+    - "#D5742E"
+    - "#9E6F72"
+    - "#4C769A"
+
+sources: []

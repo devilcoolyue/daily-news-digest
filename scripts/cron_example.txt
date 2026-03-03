@@ -1,0 +1,2 @@
+# Run every day at 08:30 local time.
+30 8 * * * cd /Users/tianlanxu/Documents/HandyTools/handytools-special && /bin/zsh -lc '. .venv/bin/activate && PYTHONPATH=src python3 -m daily_infographic.cli run --domain ai >> output/daily.log 2>&1'

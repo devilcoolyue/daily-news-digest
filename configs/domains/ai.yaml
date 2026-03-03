@@ -1,0 +1,204 @@
+domain: ai
+display_name: 今日AI资讯
+timezone: Asia/Shanghai
+window_hours: 30
+top_k: 12
+title_max_len: 30
+summary_max_len: 90
+tags_max_count: 3
+
+diversity:
+  per_entity_limit: 2
+
+dedupe:
+  title_similarity_threshold: 0.82
+
+scoring:
+  impact: 0.35
+  reliability: 0.25
+  recency: 0.20
+  corroboration: 0.15
+  buzz: 0.05
+
+source_reliability:
+  official: 0.95
+  wire: 0.90
+  media: 0.75
+  aggregator: 0.62
+  social: 0.45
+
+keyword_impact:
+  发布: 0.75
+  开源: 0.70
+  融资: 0.85
+  财报: 0.80
+  并购: 0.92
+  合作: 0.62
+  监管: 0.88
+  禁令: 0.95
+  价格: 0.55
+  芯片: 0.74
+  大模型: 0.70
+  agent: 0.68
+  模型: 0.60
+
+entity_keywords:
+  - OpenAI
+  - Anthropic
+  - Google
+  - Meta
+  - Microsoft
+  - NVIDIA
+  - Apple
+  - Amazon
+  - 阿里
+  - 百度
+  - 腾讯
+  - 字节
+  - MiniMax
+  - 智谱
+  - 月之暗面
+  - 蔚来
+  - 小鹏
+  - 文远知行
+
+tag_keywords:
+  OpenAI: OpenAI
+  Anthropic: Anthropic
+  Google: Google
+  Meta: Meta
+  苹果: Apple
+  NVIDIA: NVIDIA
+  财报: 财报
+  发布: 发布
+  融资: 融资
+  芯片: 芯片
+  Robotaxi: Robotaxi
+  监管: 监管
+  大模型: 大模型
+
+llm:
+  enable_title_refine: true
+  enable_summary_refine: true
+  enable_icon_classify: true
+  batch_size: 12
+  provider: deepseek
+  api_base: https://api.deepseek.com/v1
+  model: deepseek-chat
+  timeout_sec: 45
+  title_max_chars: 30
+  title_min_chars: 6
+  summary_max_chars: 90
+  summary_min_chars: 18
+
+render:
+  width: 1240
+  height: 1920
+  margin: 48
+  gap: 14
+  header_height: 230
+  footer_height: 48
+  layout_mode: smart
+  primary_card_emphasis: true
+  output_dir: output
+  icon_cache_dir: icon_cache
+  icon_fetch_timeout_sec: 6
+  icon_fetch_proxy: http://127.0.0.1:7890
+  background:
+    start: "#eef6ff"
+    end: "#dae8ff"
+  card_palette:
+    - "#2B6BE4"
+    - "#E96C2B"
+    - "#B8902C"
+    - "#14A4B8"
+    - "#2A9D59"
+    - "#8A909C"
+    - "#2A9CF2"
+    - "#1A4C96"
+    - "#7C4AD9"
+    - "#D5742E"
+    - "#9E6F72"
+    - "#4C769A"
+
+sources:
+  - id: openai_news
+    name: OpenAI News
+    type: rss
+    enabled: true
+    tier: official
+    priority: 1.00
+    url: https://openai.com/news/rss.xml
+    tags: [OpenAI, 官方]
+
+  - id: anthropic_news
+    name: Anthropic Watch
+    type: rss
+    enabled: true
+    tier: media
+    priority: 0.78
+    url: https://www.theverge.com/rss/anthropic/index.xml
+    tags: [Anthropic, 媒体]
+
+  - id: huggingface_blog
+    name: Hugging Face Blog
+    type: rss
+    enabled: true
+    tier: official
+    priority: 0.88
+    url: https://huggingface.co/blog/feed.xml
+    tags: [开源, 模型]
+
+  - id: venturebeat_ai
+    name: VentureBeat AI
+    type: rss
+    enabled: true
+    tier: media
+    priority: 0.72
+    url: https://venturebeat.com/category/ai/feed/
+    tags: [媒体]
+
+  - id: techcrunch_ai
+    name: TechCrunch AI
+    type: rss
+    enabled: true
+    tier: media
+    priority: 0.72
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    tags: [媒体]
+
+  - id: the_verge_ai
+    name: The Verge AI
+    type: rss
+    enabled: true
+    tier: media
+    priority: 0.74
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    tags: [媒体, AI]
+
+  - id: mit_techreview_ai
+    name: MIT Tech Review AI
+    type: rss
+    enabled: true
+    tier: media
+    priority: 0.74
+    url: https://www.technologyreview.com/topic/artificial-intelligence/feed/
+    tags: [媒体, AI]
+
+  - id: wired_ai
+    name: Wired AI
+    type: rss
+    enabled: true
+    tier: media
+    priority: 0.73
+    url: https://www.wired.com/feed/tag/ai/latest/rss
+    tags: [媒体, AI]
+
+  - id: local_mock_ai
+    name: Mock AI Feed
+    type: mock
+    enabled: true
+    dev_only: true
+    tier: media
+    priority: 0.70
+    tags: [本地演示]
